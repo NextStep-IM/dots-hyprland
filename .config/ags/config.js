@@ -66,5 +66,5 @@ export default {
 // Stuff that don't need to be toggled. And they're async so ugh...
 // Bar().catch(print); // Use this to debug the bar
 forMonitors(Bar);
-forMonitors(BarCornerTopleft);
-forMonitors(BarCornerTopright);
+//forMonitors(BarCornerTopleft);
+//forMonitors(BarCornerTopright);
