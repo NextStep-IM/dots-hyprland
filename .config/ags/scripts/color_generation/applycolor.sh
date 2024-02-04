@@ -83,21 +83,21 @@ apply_fuzzel() {
     done
 }
 
-apply_foot() {
-    # Check if scripts/templates/foot/foot.ini exists
-    if [ ! -f "scripts/templates/foot/foot.ini" ]; then
-        echo "Template file not found for Foot. Skipping that."
-        return
-    fi
-    # Copy template
-    cp "scripts/templates/foot/foot.ini" "$HOME/.config/foot/foot_new.ini"
-    # Apply colors
-    for i in "${!colorlist[@]}"; do
-        sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME/.config/foot/foot_new.ini" # note: ff because theyre opaque
-    done
-
-    cp "$HOME/.config/foot/foot_new.ini" "$HOME/.config/foot/foot.ini"
-}
+#apply_foot() {
+#    # Check if scripts/templates/foot/foot.ini exists
+#    if [ ! -f "scripts/templates/foot/foot.ini" ]; then
+#        echo "Template file not found for Foot. Skipping that."
+#        return
+#    fi
+#    # Copy template
+#    cp "scripts/templates/foot/foot.ini" "$HOME/.config/foot/foot_new.ini"
+#    # Apply colors
+#    for i in "${!colorlist[@]}"; do
+#        sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME/.config/foot/foot_new.ini" # note: ff because theyre opaque
+#    done
+#
+#    cp "$HOME/.config/foot/foot_new.ini" "$HOME/.config/foot/foot.ini"
+#}
 
 apply_term() {
     # Check if scripts/templates/foot/foot.ini exists
