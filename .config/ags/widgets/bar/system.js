@@ -67,8 +67,8 @@ const Utilities = () => Box({
     className: 'spacing-h-5 txt-onSurfaceVariant',
     children: [
         UtilButton({
-            name: 'Screen snip', icon: 'screenshot_region', onClicked: () => {
-                Utils.execAsync(['bash', '-c', `grim -g "$(slurp -d -c e2e2e2BB -b 31313122 -s 00000000)" - | wl-copy &`])
+            name: 'Restart ags', icon: 'skull', onClicked: () => {
+                Utils.execAsync(['bash', '-c', `pkill ags; nohup ags </dev/null >/dev/null 2>&1 &`])
                     .catch(print)
             }
         }),
@@ -78,8 +78,8 @@ const Utilities = () => Box({
             }
         }),
         UtilButton({
-            name: 'Toggle on-screen keyboard', icon: 'keyboard', onClicked: () => {
-                App.toggleWindow('osk');
+            name: 'Systray fix', icon: 'handyman', onClicked: () => {
+                Utils.execAsync(['bash', '-c', `systray_fix.sh`])
             }
         }),
     ]
@@ -100,7 +100,7 @@ const BarBattery = () => Box({
         Label({
             className: 'txt-smallie txt-onSurfaceVariant',
             setup: (self) => self.hook(Battery, label => {
-                label.label = `${Battery.percent}%`;
+                label.label = `${(Battery.percent).toFixed(2)}%`;
             }),
         }),
         Overlay({
