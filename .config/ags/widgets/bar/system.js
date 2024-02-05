@@ -68,7 +68,7 @@ const Utilities = () => Box({
     children: [
         UtilButton({
             name: 'Restart ags', icon: 'skull', onClicked: () => {
-                Utils.execAsync(['bash', '-c', `pkill ags; nohup ags </dev/null >/dev/null 2>&1 &`])
+                Utils.execAsync(['bash', '-c', `killall ags ydotool; ags &`])
                     .catch(print)
             }
         }),
