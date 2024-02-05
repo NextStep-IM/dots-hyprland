@@ -94,8 +94,9 @@
 
 .txt-small {
     //12pt
-    @include mainfont;
-    font-size: 1.0909rem;
+    //@include mainfont;
+    font-family: 'Grape Nuts', sans-serif;
+    font-size: 1.5009rem;
 }
 
 .txt-smallie {
