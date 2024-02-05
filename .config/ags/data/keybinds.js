@@ -3,8 +3,8 @@ export const keybindList = [[
         "icon": "pin_drop",
         "name": "Workspaces: navigation",
         "binds": [
-            { "keys": ["", "+", "#"], "action": "Go to workspace #" },
-            { "keys": ["", "+", "S"], "action": "Toggle special workspace" },
+            { "keys": ["Alt", "+", "#"], "action": "Go to workspace #" },
+            { "keys": ["Alt", "+", "S"], "action": "Toggle special workspace" },
             { "keys": ["", "+", "(Scroll ↑↓)"], "action": "Go to workspace -1/+1" },
             { "keys": ["Ctrl", "", "+", "←"], "action": "Go to workspace on the left" },
             { "keys": ["Ctrl", "", "+", "→"], "action": "Go to workspace on the right" },
@@ -17,8 +17,8 @@ export const keybindList = [[
         "icon": "overview_key",
         "name": "Workspaces: management",
         "binds": [
-            { "keys": ["", "Alt", "+", "#"], "action": "Move window to workspace #" },
-            { "keys": ["", "Alt", "+", "S"], "action": "Move window to special workspace" },
+            { "keys": ["Alt", "Shift", "+", "#"], "action": "Move window to workspace #" },
+            { "keys": ["Ctrl", "Alt", "+", "S"], "action": "Move window to special workspace" },
             { "keys": ["", "Alt", "+", "PageUp"], "action": "Move window to workspace on the left" },
             { "keys": ["", "Alt", "+", "PageDown"], "action": "Move window to workspace on the right" }
         ],
@@ -28,15 +28,15 @@ export const keybindList = [[
         "icon": "move_group",
         "name": "Windows",
         "binds": [
-            { "keys": ["", "+", "←↑→↓"], "action": "Focus window in direction" },
-            { "keys": ["", "Shift", "+", "←↑→↓"], "action": "Swap window in direction" },
-            { "keys": ["", "+", ";"], "action": "Split ratio -" },
-            { "keys": ["", "+", "'"], "action": "Split ratio +" },
+            { "keys": ["Alt", "+", "←↑→↓"], "action": "Focus window in direction" },
+            { "keys": ["Alt", "Shift", "+", "←↑→↓"], "action": "Swap window in direction" },
+            { "keys": ["Alt", "+", ";"], "action": "Split ratio -" },
+            { "keys": ["Alt", "+", "'"], "action": "Split ratio +" },
             { "keys": ["", "+", "Lmb"], "action": "Move window" },
             { "keys": ["", "+", "Mmb"], "action": "Move window" },
             { "keys": ["", "+", "Rmb"], "action": "Resize window" },
-            { "keys": ["", "+", "F"], "action": "Fullscreen" },
-            { "keys": ["", "Alt", "+", "F"], "action": "Fake fullscreen" }
+            { "keys": ["Alt", "+", "F"], "action": "Fullscreen" },
+            { "keys": ["", "+", "F"], "action": "Fake fullscreen" }
         ],
         "appeartick": 1
     }
@@ -50,7 +50,7 @@ export const keybindList = [[
             { "keys": ["Ctrl", "", "+", "R"], "action": "Restart AGS" },
             { "keys": ["", "+", "/"], "action": "Toggle this cheatsheet" },
             { "keys": ["", "+", "N"], "action": "Toggle system sidebar" },
-            { "keys": ["", "+", "B", "OR", "", "+", "O"], "action": "Toggle utilities sidebar" },
+            { "keys": ["", "+", "O"], "action": "Toggle utilities sidebar" },
             { "keys": ["", "+", "K"], "action": "Toggle virtual keyboard" },
             { "keys": ["Ctrl", "Alt", "+", "Del"], "action": "Power/Session menu" },
 
@@ -101,7 +101,7 @@ export const keybindList = [[
         "icon": "apps",
         "name": "Apps",
         "binds": [
-            { "keys": ["", "+", "T"], "action": "Launch terminal: foot" },
+            { "keys": ["Alt", "+", "Enter"], "action": "Launch terminal: foot" },
             { "keys": ["", "+", "W"], "action": "Launch browser: Firefox" },
             { "keys": ["", "+", "C"], "action": "Launch editor: vscode" },
             { "keys": ["", "+", "X"], "action": "Launch editor: GNOME Text Editor" },
@@ -113,7 +113,7 @@ export const keybindList = [[
         "icon": "keyboard",
         "name": "Typing",
         "binds": [
-            { "keys": ["", "+", "V"], "action": "Clipboard history  >>  clipboard" },
+            { "keys": ["", "+", "V"], "action": "Toggle copyq" },
             { "keys": ["", "+", "."], "action": "Emoji picker  >>  clipboard" },
         ],
         "appeartick": 3
