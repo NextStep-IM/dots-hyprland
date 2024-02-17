@@ -80,44 +80,44 @@ apply_fuzzel() {
     cp  "$HOME"/.cache/ags/user/generated/fuzzel/fuzzel.ini "$HOME"/.config/fuzzel/fuzzel.ini
 }
 
-apply_foot() {
-    if [ ! -f "scripts/templates/foot/foot.ini" ]; then
-        echo "Template file not found for Foot. Skipping that."
-        return
-    fi
-    # Copy template
-    mkdir -p "$HOME"/.cache/ags/user/generated/foot
-    cp "scripts/templates/foot/foot.ini" "$HOME"/.cache/ags/user/generated/foot/foot.ini
-    # Apply colors
-    for i in "${!colorlist[@]}"; do
-        # sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/foot/foot.ini
-        sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/foot/foot.ini
-    done
+# apply_foot() {
+#     if [ ! -f "scripts/templates/foot/foot.ini" ]; then
+#         echo "Template file not found for Foot. Skipping that."
+#         return
+#     fi
+#     # Copy template
+#     mkdir -p "$HOME"/.cache/ags/user/generated/foot
+#     cp "scripts/templates/foot/foot.ini" "$HOME"/.cache/ags/user/generated/foot/foot.ini
+#     # Apply colors
+#     for i in "${!colorlist[@]}"; do
+#         # sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/foot/foot.ini
+#         sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/foot/foot.ini
+#     done
+#
+#     cp "$HOME"/.cache/ags/user/generated/foot/foot.ini "$HOME/.config/foot/foot.ini"
+# }
 
-    cp "$HOME"/.cache/ags/user/generated/foot/foot.ini "$HOME/.config/foot/foot.ini"
-}
-
-apply_term() {
-    # Check if scripts/templates/foot/foot.ini exists
-    if [ ! -f "scripts/templates/terminal/sequences.txt" ]; then
-        echo "Template file not found for Terminal. Skipping that."
-        return
-    fi
-    # Copy template
-    mkdir -p "$HOME"/.cache/ags/user/generated/terminal
-    cp "scripts/templates/terminal/sequences.txt" "$HOME"/.cache/ags/user/generated/terminal/sequences.txt
-    # Apply colors
-    for i in "${!colorlist[@]}"; do
-        sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/terminal/sequences.txt
-    done
-    cp "$HOME"/.cache/ags/user/generated/terminal/sequences.txt "$HOME"/.config/fish/sequences.txt
-
-    for file in /dev/pts/*; do
-      if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
-        cat "$HOME"/.config/fish/sequences.txt > "$file"
-      fi
-    done
-}
+# apply_term() {
+#     # Check if scripts/templates/foot/foot.ini exists
+#     if [ ! -f "scripts/templates/terminal/sequences.txt" ]; then
+#         echo "Template file not found for Terminal. Skipping that."
+#         return
+#     fi
+#     # Copy template
+#     mkdir -p "$HOME"/.cache/ags/user/generated/terminal
+#     cp "scripts/templates/terminal/sequences.txt" "$HOME"/.cache/ags/user/generated/terminal/sequences.txt
+#     # Apply colors
+#     for i in "${!colorlist[@]}"; do
+#         sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/terminal/sequences.txt
+#     done
+#     cp "$HOME"/.cache/ags/user/generated/terminal/sequences.txt "$HOME"/.config/fish/sequences.txt
+#
+#     for file in /dev/pts/*; do
+#       if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
+#         cat "$HOME"/.config/fish/sequences.txt > "$file"
+#       fi
+#     done
+# }
 
 apply_hyprland() {
     # Check if scripts/templates/hypr/colors.conf exists
