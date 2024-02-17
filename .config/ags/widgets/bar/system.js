@@ -107,7 +107,7 @@ const BarBattery = () => Box({
         Label({
             className: 'txt-smallie txt-onSurfaceVariant',
             setup: (self) => self.hook(Battery, label => {
-                label.label = `${Battery.percent}%`;
+                                label.label = `${(Battery.percent).toFixed(2)}%`;
             }),
         }),
         Overlay({
