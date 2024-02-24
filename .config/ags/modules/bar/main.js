@@ -3,7 +3,7 @@ import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 
 import WindowTitle from "./spaceleft.js";
 import Indicators from "./spaceright.js";
-import Music from "./music.js";
+//import Music from "./music.js";
 import System from "./system.js";
 import { enableClickthrough } from "../.widgetutils/clickthrough.js";
 import { RoundedCorner } from "../.commonwidgets/cairo_roundedcorner.js";
@@ -36,7 +36,7 @@ export const Bar = async (monitor = 0) => {
         centerWidget: Widget.Box({
             className: 'spacing-h-4',
             children: [
-                SideModule([Music()]),
+                //SideModule([Music()]),
                 Widget.Box({
                     homogeneous: true,
                     children: [await OptionalWorkspaces()],
