@@ -69,8 +69,8 @@ export default () => {
         onHover: () => { barStatusIcons.toggleClassName('bar-statusicons-hover', true) },
         onHoverLost: () => { barStatusIcons.toggleClassName('bar-statusicons-hover', false) },
         onPrimaryClick: () => App.toggleWindow('sideright'),
-        onSecondaryClickRelease: () => execAsync(['bash', '-c', 'playerctl next || playerctl position `bc <<< "100 * $(playerctl metadata mpris:length) / 1000000 / 100"` &']).catch(print),
-        onMiddleClickRelease: () => execAsync('playerctl play-pause').catch(print),
+        //onSecondaryClickRelease: () => execAsync(['bash', '-c', 'playerctl next || playerctl position `bc <<< "100 * $(playerctl metadata mpris:length) / 1000000 / 100"` &']).catch(print),
+        //onMiddleClickRelease: () => execAsync('playerctl play-pause').catch(print),
         child: Widget.Box({
             homogeneous: false,
             children: [
