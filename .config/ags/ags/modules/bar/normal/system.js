@@ -34,9 +34,9 @@ const BarClock = () => Widget.Box({
     children: [
         Widget.Label({
             className: 'bar-clock',
-            label: GLib.DateTime.new_now_local().format("%I:%M %p"),
-            setup: (self) => self.poll(5000, label => {
-                label.label = GLib.DateTime.new_now_local().format("%I:%M %p");
+            label: GLib.DateTime.new_now_local().format(userOptions.time.format),
+            setup: (self) => self.poll(userOptions.time.interval, label => {
+                label.label = GLib.DateTime.new_now_local().format(userOptions.time.format);
             }),
         }),
         Widget.Label({
@@ -45,9 +45,9 @@ const BarClock = () => Widget.Box({
         }),
         Widget.Label({
             className: 'txt-smallie',
-            label: GLib.DateTime.new_now_local().format("%A, %d/%m"),
-            setup: (self) => self.poll(5000, label => {
-                label.label = GLib.DateTime.new_now_local().format("%A, %d/%m");
+            label: GLib.DateTime.new_now_local().format(userOptions.time.dateFormatLong),
+            setup: (self) => self.poll(userOptions.time.dateInterval, (label) => {
+                label.label = GLib.DateTime.new_now_local().format(userOptions.time.dateFormatLong);
             }),
         }),
     ],
@@ -154,7 +154,7 @@ const BatteryModule = () => Stack({
                 ],
                 setup: (self) => self.poll(900000, async (self) => {
                     const WEATHER_CACHE_PATH = WEATHER_CACHE_FOLDER + '/wttr.in.txt';
-                    const updateWeatherForCity = (city) => execAsync(`curl https://wttr.in/${city}?format=j1`)
+                    const updateWeatherForCity = (city) => execAsync(`curl https://wttr.in/${city.replace(/ /g, '%20')}?format=j1`)
                         .then(output => {
                             const weather = JSON.parse(output);
                             Utils.writeFile(JSON.stringify(weather), WEATHER_CACHE_PATH)
@@ -185,7 +185,7 @@ const BatteryModule = () => Stack({
                             }
                         });
                     if (userOptions.weather.city != '' && userOptions.weather.city != null) {
-                        updateWeatherForCity(userOptions.weather.city);
+                        updateWeatherForCity(userOptions.weather.city.replace(/ /g, '%20'));
                     }
                     else {
                         Utils.execAsync('curl ipinfo.io')
