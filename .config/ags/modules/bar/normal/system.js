@@ -99,7 +99,7 @@ const BarBattery = () => Box({
         Label({
             className: 'txt-smallie txt-onSurfaceVariant',
             setup: (self) => self.hook(Battery, label => {
-                                label.label = `${(Battery.percent).toFixed(2)}%`;
+                label.label = `${Battery.percent}%`;
             }),
         }),
         Overlay({
@@ -108,7 +108,7 @@ const BarBattery = () => Box({
                 className: 'bar-batt',
                 homogeneous: true,
                 children: [
-                    MaterialIcon('charger', 'small'),
+                    MaterialIcon('settings_heart', 'small'),
                 ],
                 setup: (self) => self.hook(Battery, box => {
                     box.toggleClassName('bar-batt-low', Battery.percent <= userOptions.battery.low);
@@ -217,7 +217,7 @@ const switchToRelativeWorkspace = async (self, num) => {
 export default () => Widget.EventBox({
     onScrollUp: (self) => switchToRelativeWorkspace(self, -1),
     onScrollDown: (self) => switchToRelativeWorkspace(self, +1),
-    onPrimaryClick: () => Utils.execAsync(['bash', '-c', '/usr/local/bin/bat_check.sh']), 
+    onPrimaryClick: () => App.toggleWindow('sideright'),
     child: Widget.Box({
         className: 'spacing-h-4',
         children: [
