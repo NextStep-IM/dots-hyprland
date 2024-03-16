@@ -108,7 +108,7 @@ const BarBattery = () => Box({
                 className: 'bar-batt',
                 homogeneous: true,
                 children: [
-                    MaterialIcon('battery_full', 'small'),
+                    MaterialIcon('charger', 'small'),
                 ],
                 setup: (self) => self.hook(Battery, box => {
                     box.toggleClassName('bar-batt-low', Battery.percent <= userOptions.battery.low);
