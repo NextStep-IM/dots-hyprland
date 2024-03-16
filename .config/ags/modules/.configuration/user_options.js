@@ -53,7 +53,7 @@ let configOptions = {
         'dateFormat': "%d/%m", // On notif time
     },
     'weather': {
-        'city': "",
+        'city': "Sargodha",
     },
     'workspaces': {
         'shown': 10,
