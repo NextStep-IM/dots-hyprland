@@ -10,8 +10,8 @@ import md2pango from '../../.miscutils/md2pango.js';
 import { darkMode } from "../../.miscutils/system.js";
 
 const LATEX_DIR = `${GLib.get_user_cache_dir()}/ags/media/latex`;
-const CUSTOM_SOURCEVIEW_SCHEME_PATH = `${App.configDir}/assets/themes/sourceviewtheme.xml`;
-const CUSTOM_SCHEME_ID = 'custom';
+const CUSTOM_SOURCEVIEW_SCHEME_PATH = `${App.configDir}/assets/themes/sourceviewtheme${darkMode ? '' : '-light'}.xml`;
+const CUSTOM_SCHEME_ID = `custom${darkMode ? '' : '-light'}`;
 const USERNAME = GLib.get_user_name();
 
 /////////////////////// Custom source view colorscheme /////////////////////////
@@ -82,7 +82,7 @@ const Latex = (content = '') => {
     const latexViewArea = Box({
         // vscroll: 'never',
         // hscroll: 'automatic',
-        homogeneous: true,
+        // homogeneous: true,
         attribute: {
             render: async (self, text) => {
                 if (text.length == 0) return;
