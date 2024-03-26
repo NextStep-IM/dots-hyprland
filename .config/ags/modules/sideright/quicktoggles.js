@@ -87,7 +87,7 @@ export const ModuleNightLight = (props = {}) => Widget.Button({ // TODO: Make th
     onClicked: (self) => {
         self.attribute.enabled = !self.attribute.enabled;
         self.toggleClassName('sidebar-button-active', self.attribute.enabled);
-        if (self.attribute.enabled) Utils.execAsync(['wlsunset', '-t', '4500']).catch(print)
+        if (self.attribute.enabled) Utils.execAsync(['wlsunset', '-l', '33.5', '-L', '73.0']).catch(print)
         else Utils.execAsync('pkill wlsunset').catch(print);
     },
     child: MaterialIcon('nightlight', 'norm'),
