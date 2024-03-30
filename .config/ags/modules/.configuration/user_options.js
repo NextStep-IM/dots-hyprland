@@ -24,7 +24,7 @@ let configOptions = {
         'imageViewer': "loupe",
         'network': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
         'settings': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
-        'taskManager': "gnome-system-monitor",
+        'taskManager': "plasma-systemmonitor",
         'terminal': "foot", // This is only for shell actions
     },
     'battery': {
