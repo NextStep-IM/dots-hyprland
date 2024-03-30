@@ -20,7 +20,7 @@ let configOptions = {
         'keyboardUseFlag': false, // Use flag emoji instead of abbreviation letters
     },
     'apps': {
-        'bluetooth': "blueberry",
+        'bluetooth': "blueman-manager",
         'imageViewer': "loupe",
         'network': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
         'settings': "XDG_CURRENT_DESKTOP=\"gnome\" gnome-control-center wifi",
