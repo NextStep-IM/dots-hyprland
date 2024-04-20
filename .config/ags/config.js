@@ -10,8 +10,8 @@ import { firstRunWelcome } from './services/messages.js';
 // Widgets
 import { Bar, BarCornerTopleft, BarCornerTopright } from './modules/bar/main.js';
 import Cheatsheet from './modules/cheatsheet/main.js';
-import DesktopBackground from './modules/desktopbackground/main.js';
-// import Dock from './modules/dock/main.js';
+// import DesktopBackground from './modules/desktopbackground/main.js';
+import Dock from './modules/dock/main.js';
 import Corner from './modules/screencorners/main.js';
 import Indicator from './modules/indicators/main.js';
 import Osk from './modules/onscreenkeyboard/main.js';
@@ -54,6 +54,7 @@ const Windows = () => [
     SideRight(),
     forMonitors(Osk),
     Session(),
+    userOptions.dock.enabled ? forMonitors(Dock) : null,
     // forMonitors(Bar),
     ...(userOptions.appearance.fakeScreenRounding ? [
         forMonitors((id) => Corner(id, 'top left', true)),
@@ -81,5 +82,3 @@ App.config({
 
 // Stuff that don't need to be toggled. And they're async so ugh...
 forMonitorsAsync(Bar);
-// Bar().catch(print); // Use this to debug the bar. Single monitor only.
-
