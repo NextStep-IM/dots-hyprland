@@ -94,7 +94,7 @@ const distroAndVersion = Box({
                 Label({
                     className: 'bg-distro-name',
                     xalign: 0,
-                    label: '<distro>',
+                    label: 'Arco',
                     setup: (label) => {
                         execAsync([`grep`, `-oP`, `PRETTY_NAME="\\K[^"]+`, `/etc/os-release`]).then(distro => {
                             label.label = distro;
