@@ -111,16 +111,41 @@ $ask && echo "Attempt to set previously explicitly installed deps as implicit? "
 $ask && showfun set-explicit-to-implicit
 v set-explicit-to-implicit
 
+# https://github.com/end-4/dots-hyprland/issues/581
+# yay -Bi is kinda hit or miss, instead cd into the relevant directory and manually source and install deps
+install-local-pkgbuild() {
+	local location=$1
+	local installflags=$2
+
+	x pushd $location
+	
+	source ./PKGBUILD
+	x $AUR_HELPER -S $installflags --asdeps "${depends[@]}"
+	x makepkg -si --noconfirm
+
+	x popd
+}
 
 # Install core dependencies from the meta-packages
-metapkgs=(arch-packages/illogical-impulse-{audio,backlight,basic,fonts-themes,gnome,gtk,microtex,portal,python,screencapture,widgets})
-if $ask; then
-	# execute for every meta package
-	for i in "${metapkgs[@]}";do v $AUR_HELPER -Bi --needed --answerclean=n $i;done
-else
-	# execute for all meta packages at once
-	v $AUR_HELPER -Bi --needed --answerclean=n --noconfirm ${metapkgs[@]}
-fi
+metapkgs=(./arch-packages/illogical-impulse-{audio,backlight,basic,fonts-themes,gnome,gtk,microtex,portal,python,screencapture,widgets})
+
+for i in "${metapkgs[@]}"; do
+	metainstallflags="--needed"
+	$ask && showfun install-local-pkgbuild || metainstallflags="$metainstallflags --noconfirm"
+	v install-local-pkgbuild "$i" "$metainstallflags"
+done
+
+# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081690658
+# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081701482
+# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081707099
+case $SKIP_PYMYC_AUR in
+  true) sleep 0;;
+  *)
+	  pymycinstallflags="--clean"
+	  $ask && showfun install-local-pkgbuild || pymycinstallflags="$installflags --noconfirm"
+	  v install-local-pkgbuild "./arch-packages/illogical-impulse-pymyc-aur" "$pymycinstallflags"
+    ;;
+esac
 
 
 # https://github.com/end-4/dots-hyprland/issues/389#issuecomment-2040671585
@@ -135,29 +160,6 @@ case $SKIP_HYPR_AUR in
     ;;
 esac
 
-install-pymyc-aur() {
-	# Yay is bugged and destroys the PKGBUILD if you specify to cleanBuild with the -Bi flag, so we install the deps manually.
-	# If we install the deps using --asdeps we can remove them recursively by removing the metapackage.
-	installflags="-S --answerclean=a --asdeps"
-	$ask || installflags="$installflags --noconfirm"
-	$AUR_HELPER $installflags ${pymyc[@]}
-
-	pushd arch-packages/illogical-impulse-pymyc-aur
-	makepkg -si
-	popd
-}
-
-# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081690658
-# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081701482
-# https://github.com/end-4/dots-hyprland/issues/428#issuecomment-2081707099
-pymyc=(python-materialyoucolor-git gradience-git python-libsass python-material-color-utilities)
-case $SKIP_PYMYC_AUR in
-  true) sleep 0;;
-  *)
-	  $ask && showfun install-pymyc-aur
-	  v install-pymyc-aur
-    ;;
-esac
 
 ## Optional dependencies
 if pacman -Qs ^plasma-browser-integration$ ;then SKIP_PLASMAINTG=true;fi
