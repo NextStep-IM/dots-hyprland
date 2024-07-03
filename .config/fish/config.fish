@@ -23,3 +23,8 @@ alias pamcan=pacman
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
 # end
+
+# Set up fzf key bindings
+fzf --fish | source
+
+zoxide init fish | source
