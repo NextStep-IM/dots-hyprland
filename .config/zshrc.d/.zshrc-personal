@@ -1,0 +1,6 @@
+alias ea="exa --color=always --icons" 
+
+alias lazygit="lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/mocha/peach.yml""
+
+
+
