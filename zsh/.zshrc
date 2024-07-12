@@ -568,3 +568,4 @@ export FZF_DEFAULT_OPTS=" \
 
 bindkey '^Z' undo
 
+eval "$(register-python-argcomplete pipx)"
