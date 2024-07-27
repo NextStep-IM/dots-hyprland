@@ -4,5 +4,8 @@ alias lazygit="lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME
 
 alias netmgrestart="systemctl restart NetworkManager"
 
+alias mpvn="mpv --no-video"
+
+
 
 
