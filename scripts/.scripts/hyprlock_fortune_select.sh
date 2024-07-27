@@ -2,15 +2,15 @@
 
 # Array of commands to choose from
 commands=(
-  "fortune -a pets"
-  "fortune -a computers"
-  "fortune -a science"
-  "fortune -a cookie"
-  "fortune -a education"
-  "fortune -a people"
-  "fortune -a discworld"
-  "fortune -a malazan"
-  "fortune -a vimtips"
+  "fortune -as pets"
+  "fortune -as computers"
+  "fortune -as science"
+  "fortune -as cookie"
+  "fortune -as education"
+  "fortune -as people"
+  "fortune -as discworld"
+  "fortune -as malazan"
+  "fortune -as vimtips"
 )
 
 # Get the length of the commands array
