@@ -10,7 +10,10 @@ commands=(
   "fortune -as people"
   "fortune -as discworld"
   "fortune -as malazan"
-  "fortune -as vimtips"
+  "fortune -as magic"
+  "fortune -as wisdom"
+  "fortune -as paradoxum"
+  "fortune -as news"
 )
 
 # Get the length of the commands array
