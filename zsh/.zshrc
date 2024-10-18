@@ -569,3 +569,4 @@ export FZF_DEFAULT_OPTS=" \
 bindkey '^Z' undo
 
 eval "$(register-python-argcomplete pipx)"
+source /usr/share/nvm/init-nvm.sh
