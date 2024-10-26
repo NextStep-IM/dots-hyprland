@@ -570,3 +570,6 @@ bindkey '^Z' undo
 
 eval "$(register-python-argcomplete pipx)"
 source /usr/share/nvm/init-nvm.sh
+
+export PATH=$PATH:~/.scripts
+
