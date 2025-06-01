@@ -573,3 +573,7 @@ source /usr/share/nvm/init-nvm.sh
 
 export PATH=$PATH:~/.scripts
 
+
+# Spotify 
+export SPOTIFY_CLIENT_ID="a2f705112c46453985eaec4a4920f128"
+export SPOTIFY_CLIENT_SECRET="7fa420d97ff84e519d7fc23e41c5cdc0"
